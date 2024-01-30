@@ -1,0 +1,3 @@
+D:/Projects/C++/Truck-Platooning/cmake-build-debug-visual-studio/CMakeFiles/Truck_Platooning.dir
+D:/Projects/C++/Truck-Platooning/cmake-build-debug-visual-studio/CMakeFiles/edit_cache.dir
+D:/Projects/C++/Truck-Platooning/cmake-build-debug-visual-studio/CMakeFiles/rebuild_cache.dir

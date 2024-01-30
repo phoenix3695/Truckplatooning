@@ -1,0 +1,7 @@
+# ninja log v5
+19	334	7281525808948323	build.ninja	e6efb85af2d48244
+39	1658	7276426253829945	CMakeFiles/Truck_Platooning.dir/Truck/FollowerTruck/FollowerTruck.cpp.obj	68cb1e8f2f5b2359
+5	2290	7281504227583369	CMakeFiles/Truck_Platooning.dir/main.cpp.obj	5a47fc7da9f802d0
+50	1793	7276426255174439	CMakeFiles/Truck_Platooning.dir/Truck/LeaderTruck/LeaderTruck.cpp.obj	76203577839cd957
+17	10344	7276426340332838	CMakeFiles/Truck_Platooning.dir/Truck/Truck.cu.obj	e503150f6a2a2633
+2290	3332	7281504236542209	Truck_Platooning.exe	d5d8c85995191b6c
