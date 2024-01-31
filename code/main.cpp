@@ -68,10 +68,10 @@ void handleClient(SOCKET clientSocket) {
     }
     int recoupleDuration = 0;
     while (runloop) {
-
+        // Implementation of PID from leadeer side - This was the inititial proposition, changed to pid with each follower.
         //float errors[1] = {1.0f};  // Initialize with appropriate error values
         //float outputs[1] = {0.0f}; // Initialize with appropriate output values
-        //float constants[3] = {0.1f, 0.2f, 0.3f};
+        //float constants[3] = {0.3f, 0.02f, 0.2f};
         //float pidResult = leader.cudaPidComputation(errors, outputs, constants, 1);
         //cout << leader.toString() << endl;
         //Update from server: Update: Some data from the server.
@@ -365,47 +365,45 @@ int FollowerTruckController(string myid) {
                 }
 
 
-                //cout << "pid" << endl;
-                //int speedIncrement = 5;
-                //float pidError = static_cast<float>(parsedData.expectedX - follower.getPosition().x);
+                // PID implementation
+                float pidError = static_cast<float>(parsedData.expectedX - follower.getPosition().x);
                 // Call the PID function with errors, outputs, and constants
-                //float errors[1] = {pidError};
-                //float outputs[1] = {0.0f};  // Initialize with appropriate output values
-                //float constants[3] = {0.1f, 0.2f, 0.3f};  // Replace with your actual PID constants
-                //float pidResult = follower.cudaPidComputation(errors, outputs, constants, 1);
+                float errors[1] = {pidError};
+                float outputs[1] = {0.0f};  // Initialize with appropriate output values
+                float constants[3] = {0.3f, 0.02f, 0.2f};  // Replace with your actual PID constants
+                float pidResult = follower.cudaPidComputation(errors, outputs, constants, 1);
                 //cout << "pid:" << pidResult << endl;
-                //int newSpeed = follower.getSpeed() + static_cast<int>(pidResult);
-                //int newSpeed;
-                //{
+                int newSpeed = follower.getSpeed() + static_cast<int>(pidResult);
+                int newSpeed;
+                {
                 //Use a lock_guard to protect access to shared data
-                //std::lock_guard<std::mutex> followerLock(followerMutex);
-                //int newSpeed;
-                //{
-                //    std::lock_guard<std::mutex> lockSpeed(fSpdMutex);
-                //   newSpeed = follower_Speed;
-                //}
+                    std::lock_guard<std::mutex> followerLock(followerMutex);
+                    int newSpeed;
+                }
+                {
+                    std::lock_guard<std::mutex> lockSpeed(fSpdMutex);
+                    newSpeed = follower_Speed;
+                }
 
-                //float error;
-                //{
-                //    std::lock_guard<std::mutex> lockPos(fPosMutex);
-                //   error = parsedData.expectedX - follower_pos;
-                //}
+                float error;
+                {
+                    std::lock_guard<std::mutex> lockPos(fPosMutex);
+                    error = parsedData.expectedX - follower_pos;
+                }
 
-                // if (error > 0) {
-                //    newSpeed = newSpeed + 1;
-                // } else {
-                //    newSpeed = newSpeed - 1;
-                // }
+                if (error > 0) {
+                    newSpeed = newSpeed + 1;
+                } else {
+                    newSpeed = newSpeed - 1;
+                }
 
-                // newSpeed = max(40, min(newSpeed, 80));
+                newSpeed = max(40, min(newSpeed, 80));
 
                 //std::cout << "new speed" << newSpeed << std::endl;
 
-                //follower.setSpeed(80);
-                //follower.runForSeconds(1);
-                //}
-
-
+                follower.setSpeed(80);
+                follower.runForSeconds(1);
+                }
 
 
                 //std::this_thread::sleep_for(std::chrono::seconds(1));
