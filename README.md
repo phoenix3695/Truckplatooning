@@ -16,21 +16,24 @@ Team: Pheonix
 
 ##	Contribution by each member:
 1.	Akash Cuntur Shrinivasmurthy:
+   PID implementation with CUDA
+   Software Coordinator
+  	
 ●	PID implementation with CUDA
 ●	Software Coordinator
 ●	Paper: GPU implementation
-2.	Akhil Narayanaswamy:
+3.	Akhil Narayanaswamy:
 ●	Base classes for Truck, FollowerTruck, and LeaderTruck
 ●	Paper: Implementation
-3.	Madhukar Devendrappa:
+4.	Madhukar Devendrappa:
 ●	Logical clock implementation
 ●	Requirements Diagram
 ●	Paper: Time Synchronization, Summary
-4.	Swathi Chandrashekaraiah:
+5.	Swathi Chandrashekaraiah:
 ●	Client code
 ●	State Machine Diagram
 ●	Paper: Abstract, Introduction & Motivation
-5.	Vipin Krishna Vijayakumar:
+6.	Vipin Krishna Vijayakumar:
 ●	Server code
 ●	Activity Diagram
 ●	Paper: Activity Diagram
