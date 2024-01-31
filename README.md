@@ -1,5 +1,4 @@
-# DPS Sem 1 - Truckplatooning project
-Team: Pheonix
+# DPS - Semester Project - Truck Platooning - Team Phoenix
 
 ## Presentation
 [Final presentation](https://docs.google.com/presentation/d/1JLKeOEfmVOoSep-g4_KhpmQ_otMe995fLQ-V8_wW9JI/edit?usp=sharing)
